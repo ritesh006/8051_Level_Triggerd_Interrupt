@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\Interrupt_level_trigger.obj" 
+TO ".\Objects\Level_Trigger_Interrupt" 
+PRINT(".\Listings\Level_Trigger_Interrupt.m51") RAMSIZE(256) 

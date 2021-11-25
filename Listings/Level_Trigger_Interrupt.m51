@@ -1,0 +1,154 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    11/25/2021  09:09:07  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\Interrupt_level_trigger.obj TO .\Objects\Level_Trigger_Inte
+>> rrupt PRINT (.\Listings\Level_Trigger_Interrupt.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\Interrupt_level_trigger.obj (INTERRUPT_LEVEL_TRIGGER)
+
+
+LINK MAP OF MODULE:  .\Objects\Level_Trigger_Interrupt (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+                    0006H     07FAH                  *** GAP ***
+            CODE    0800H     0041H     UNIT         ?PR?ENT_LED?INTERRUPT_LEVEL_TRIGGER
+            CODE    0841H     0020H     UNIT         ?PR?_MS_DELAY?INTERRUPT_LEVEL_TRIGGER
+            CODE    0861H     0019H     UNIT         ?PR?MAIN?INTERRUPT_LEVEL_TRIGGER
+            CODE    087AH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Level_Trigger_Interrupt (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?INTERRUPT_LEVEL_TRIGGER
+
+?PR?MAIN?INTERRUPT_LEVEL_TRIGGER
+  +--> ?PR?_MS_DELAY?INTERRUPT_LEVEL_TRIGGER
+
+*** NEW ROOT ***************************************************
+
+?PR?ENT_LED?INTERRUPT_LEVEL_TRIGGER
+  +--> ?PR?_MS_DELAY?INTERRUPT_LEVEL_TRIGGER
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Level_Trigger_Interrupt (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/25/2021  09:09:07  PAGE 2
+
+
+  -------         MODULE        ?C_STARTUP
+  C:087AH         SEGMENT       ?C_C51STARTUP
+  I:0008H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:087DH         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:087AH         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:087AH         LINE#         133
+  C:087CH         LINE#         134
+  C:087DH         LINE#         135
+  C:087EH         LINE#         136
+  C:0880H         LINE#         185
+  C:0883H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        INTERRUPT_LEVEL_TRIGGER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  B:0090H.4       PUBLIC        Led
+  C:0800H         PUBLIC        ENT_LED
+  C:0861H         PUBLIC        main
+  C:0841H         PUBLIC        _ms_Delay
+  B:0088H.0       PUBLIC        IT0
+  B:00B0H.2       PUBLIC        Switch
+  B:0090H.3       PUBLIC        sq_wave
+  -------         PROC          ENT_LED
+  C:0800H         LINE#         20
+  C:081DH         LINE#         25
+  C:081FH         LINE#         27
+  C:0826H         LINE#         28
+  -------         ENDPROC       ENT_LED
+  -------         PROC          _MS_DELAY
+  D:0006H         SYMBOL        time
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/25/2021  09:09:07  PAGE 3
+
+
+  -------         ENDDO         
+  C:0841H         LINE#         35
+  C:0841H         LINE#         36
+  C:0841H         LINE#         40
+  C:084BH         LINE#         41
+  C:0860H         LINE#         43
+  -------         ENDPROC       _MS_DELAY
+  -------         PROC          MAIN
+  C:0861H         LINE#         48
+  C:0861H         LINE#         49
+  C:0861H         LINE#         50
+  C:0863H         LINE#         52
+  C:0865H         LINE#         54
+  C:0867H         LINE#         57
+  C:086AH         LINE#         62
+  C:086AH         LINE#         63
+  C:086AH         LINE#         66
+  C:086CH         LINE#         68
+  C:0873H         LINE#         70
+  C:0875H         LINE#         72
+  C:0878H         LINE#         75
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        INTERRUPT_LEVEL_TRIGGER
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 008CH BYTE ( 6%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=140
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
