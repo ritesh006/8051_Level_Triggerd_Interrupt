@@ -1,7 +1,8 @@
-/*---------------------------------------------------------- 
+/*------------------------------------------------------------------------------------------
+	
 	Here we are going to program a level triger interrupts 
 	
-------------------------------------------------------------*/
+-------------------------------------------------------------------------------------------*/
 
 
 # include<reg51.h>				/* header file for registers addresses */
@@ -10,9 +11,9 @@ void ms_Delay(unsigned int);			/* delay function prototyping */
 
 sbit sq_wave=P1^3;				/* rename port 1.3 as a square wave for square wave generation */
 
-sbit Led = P1^4;							/* rename port 1.4 as led for external led configure */
+sbit Led = P1^4;				/* rename port 1.4 as led for external led configure */
 
-sbit Switch = P3^2;           /* rename port 3.2 as switch for external switch configuration */
+sbit Switch = P3^2;                            /* rename port 3.2 as switch for external switch configuration */
 
 
 
@@ -47,12 +48,12 @@ void ms_Delay(unsigned int time)  /* define delay function */
 /*-------------void main start-----------------------------------*/
 void main ()
 {
-	Switch = 1; 							/* switch set 1 for making port 3.2 as a input */
+	Switch = 1; 			/* switch set 1 for making port 3.2 as a input */
 	
-	Led = 0; 									/* led port 1.4 set to 0 for initially led will off */
+	Led = 0; 			/* led port 1.4 set to 0 for initially led will off */
 	
-	IT0 = 0;									/* setting ITO equal to 0 we are using this hardware for level triggerd
-															 if ITO = 1 it will be configure for edge trigger */
+	IT0 = 0;			/* setting ITO equal to 0 we are using this hardware for level triggerd
+	                         	 if ITO = 1 it will be configure for edge trigger */
 	
 	IE = 0x81;                /* enable interrupt INT0 External interrupt zero */
 	
@@ -63,13 +64,13 @@ void main ()
 	{
 		/* square wave generation code starts */
 		
-		sq_wave = 1; 									/* setting port 1.3 to high */
+		sq_wave = 1; 		/* setting port 1.3 to high */
 
-		ms_Delay(500);						/* adding some delay */
+		ms_Delay(500);		/* adding some delay */
 	
-		sq_wave = 0; 									/* setting port 1.3 to low */
+		sq_wave = 0; 		/* setting port 1.3 to low */
 	
-		ms_Delay(500);						/* adding some delay */
+		ms_Delay(500);		/* adding some delay */
 	
 		/* square wave generation code ends here */
 	}
