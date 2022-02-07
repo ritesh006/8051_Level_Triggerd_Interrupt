@@ -1,8 +1,8 @@
-/*------------------------------------------------------------------------------------------
+/*----------------------------------------------------------------------------------------------------------------------------------
 	
 	Here we are going to program a level triger interrupts 
-	
--------------------------------------------------------------------------------------------*/
+	-
+-----------------------------------------------------------------------------------------------------------------------------------*/
 
 
 # include<reg51.h>				/* header file for registers addresses */
@@ -17,7 +17,7 @@ sbit Switch = P3^2;                            /* rename port 3.2 as switch for 
 
 
 
-/* ---------------- interrupts subroutine function starts here --------------------*/
+/* ---------------- interrupts subroutine function starts here -------------------------------------------------------------*/
 void ENT_LED() interrupt 0 
 
 /* define interrupt function of subroutine interrupt. interrupt 0 is only number for showing 
@@ -28,9 +28,7 @@ void ENT_LED() interrupt 0
 	ms_Delay(500);	/* adding some delay */
 }
 
-/* ---------------- interrupts subroutine functione ends here --------------------*/
-
-
+/* ---------------- interrupts subroutine functione ends here ----------------------------------------------------------*/
 
 
 void ms_Delay(unsigned int time)  /* define delay function */
@@ -44,21 +42,20 @@ void ms_Delay(unsigned int time)  /* define delay function */
 }
 
 
-
-/*-------------void main start-----------------------------------*/
+/*-------------void main start-------------------------------------------------------------------------------------------*/
 void main ()
 {
-	Switch = 1; 			/* switch set 1 for making port 3.2 as a input */
+	Switch = 1; 		/* switch set 1 for making port 3.2 as a input */
 	
-	Led = 0; 			/* led port 1.4 set to 0 for initially led will off */
+	Led = 0; 		/* led port 1.4 set to 0 for initially led will off */
 	
-	IT0 = 0;			/* setting ITO equal to 0 we are using this hardware for level triggerd
+	IT0 = 0;	       /* setting ITO equal to 0 we are using this hardware for level triggerd
 	                         	 if ITO = 1 it will be configure for edge trigger */
 	
-	IE = 0x81;                /* enable interrupt INT0 External interrupt zero */
+	IE = 0x81;             /* enable interrupt INT0 External interrupt zero */
 	
 	
-	/*------------ While loop starts --------------------------------*/
+/*------------ While loop starts ---------------------------------------------------------------------------------*/
 	
 	while(1)
 	{
@@ -75,9 +72,9 @@ void main ()
 		/* square wave generation code ends here */
 	}
 		
-	/*------------ While loop Ends --------------*/
+/*------------ While loop Ends --------------------------------------------------------------------------------------*/
 	
 	
 }
-/*-------------void main ends here-----------------------------------*/
+/*-------------void main ends here--------------------------------------------------------------------------------------*/
 
